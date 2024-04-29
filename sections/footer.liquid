@@ -372,7 +372,11 @@
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__column--info">
         <p>powerd by <span>ARCMEDIA<span></span></span></p>
-        <img src=" {{ blocks.settings.slide_image | image_url }} " alt="slide-img">
+        {% for block in blocks %}
+          {% if block.type == 'image' %}
+            <img src="{{ block.settings.slide_image | image_url }}" alt="slide-img">
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
